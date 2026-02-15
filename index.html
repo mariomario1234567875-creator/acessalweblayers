@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AccessAllWebLayers.onion</title>
+<style>
+body {
+    background-color: black;
+    color: #00ff00;
+    font-family: monospace;
+    text-align: center;
+    padding-top: 60px;
+    transition: background-color 0.2s;
+}
+input {
+    background: black;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 10px;
+    width: 300px;
+}
+button {
+    background: black;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+#result {
+    margin-top: 40px;
+    font-size: 18px;
+    min-height: 60px;
+}
+.warning {
+    color: red;
+    font-size: 20px;
+}
+</style>
+</head>
+<body>
+
+<h1>AccessAllWebLayers.onion</h1>
+<p>Surface → Deep → Dark → Myth</p>
+
+<input type="text" id="searchBox" placeholder="Search layers...">
+<br>
+<button onclick="searchLayer()">Search</button>
+
+<div id="result"></div>
+
+<audio id="alarmSound">
+    <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
+</audio>
+
+<script>
+function searchLayer() {
+    var query = document.getElementById("searchBox").value.toLowerCase();
+    var result = document.getElementById("result");
+    var alarm = document.getElementById("alarmSound");
+
+    // Block illegal words
+    if (query.includes("drugs") || query.includes("weapons") || query.includes("hack") || query.includes("buy illegal") || query.includes("stolen")) {
+        result.innerHTML = "⚠ ACCESS BLOCKED ⚠<br>Illegal activity detected.<br>Blocked by Unknown User.";
+        return;
+    }
+
+    // Normal layers
+    if (query.includes("surface")) {
+        result.innerHTML = "Surface Web Online.<br>No restrictions detected.";
+    }
+    else if (query.includes("deep")) {
+        result.innerHTML = "Deep Web Access Granted.<br>Authentication Required.";
+    }
+    else if (query.includes("dark")) {
+        result.innerHTML = "Dark Web Gateway Connected...<br>Proceed with caution.";
+    }
+
+    // Myth layers
+    else if (query.includes("charter")) {
+        result.innerHTML = "Charter Web Detected...<br>Clearance Level: INSUFFICIENT.";
+    }
+    else if (query.includes("mariana")) {
+        result.innerHTML = "Mariana's Web Layer 6...<br>Quantum Key Missing.";
+    }
+    else if (query.includes("fog")) {
+        result.innerHTML = "The Fog Responds...<br>Transmission Blocked.";
+    }
+    else if (query.includes("primarch")) {
+
+        result.innerHTML = "<span class='warning'>⚠ PRIMARCH SYSTEM ACCESSED ⚠<br>Monitoring Activated...</span>";
+        alarm.play();
+
+        // Flash red effect
+        let flashes = 0;
+        let flashInterval = setInterval(function() {
+            document.body.style.backgroundColor = 
+                document.body.style.backgroundColor === "darkred" ? "black" : "darkred";
+            flashes++;
+            if (flashes > 10) {
+                clearInterval(flashInterval);
+                document.body.style.backgroundColor = "black";
+            }
+        }, 200);
+
+        setTimeout(function() {
+            result.innerHTML += "<br><br>🚨 POLICE ALERT INITIATED 🚨<br>Location Trace Attempt sucess FBI is at way to your home(:.";
+        }, 3000);
+
+        setTimeout(function() {
+            result.innerHTML += "<br><br>Unknown User Overrode System.<br>🚨GOVERMENT IS HERE🚨.";
+        }, 6000);
+    }
+
+    else {
+        result.innerHTML = "No data found in this layer.";
+    }
+}
+</script>
+
+</body>
+</html>
